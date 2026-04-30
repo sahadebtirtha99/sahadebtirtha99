@@ -20,8 +20,7 @@
             max-width: 500px;
             margin: auto;
             box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-
-            border: 3px solid blue; /* Blue border added */
+            border: 3px solid blue;
         }
 
         h1 {
@@ -51,6 +50,16 @@
             margin-top: 20px;
             color: gray;
             font-style: italic;
+        }
+
+        .qr {
+            margin-top: 25px;
+        }
+
+        .qr img {
+            width: 220px;
+            border-radius: 12px;
+            border: 2px solid #ccc;
         }
     </style>
 </head>
@@ -100,6 +109,12 @@
         </a></p>
 
         <p>Welcome to the official website!</p>
+
+        <!-- QR Code Section -->
+        <div class="qr">
+            <p><b>Scan QR Code:</b></p>
+            <img src="qr-code.png" alt="QR Code">
+        </div>
 
         <div class="footer">
             Thank you for visiting us!!
