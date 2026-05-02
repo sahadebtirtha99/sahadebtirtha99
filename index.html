@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,44 +11,17 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #ffffff;
             text-align: center;
             padding: 40px;
-            animation: fadeIn 1s ease-in;
+
+            /* 🌈 Background (dark default) */
+            background: linear-gradient(-45deg, #111, #1a1a2e, #16213e, #111);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
         }
 
-        /* 🔵 BACKGROUND ANIMATION */
-        .background {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .background span {
-            position: absolute;
-            display: block;
-            background: rgba(0, 0, 0, 0.08);
-            animation: move 20s linear infinite;
-            border-radius: 50%;
-        }
-
-        .background span:nth-child(1) { left: 10%; width: 25px; height: 25px; animation-duration: 15s; }
-        .background span:nth-child(2) { left: 30%; width: 20px; height: 20px; animation-duration: 18s; }
-        .background span:nth-child(3) { left: 50%; width: 30px; height: 30px; animation-duration: 12s; }
-        .background span:nth-child(4) { left: 70%; width: 22px; height: 22px; animation-duration: 20s; }
-        .background span:nth-child(5) { left: 85%; width: 18px; height: 18px; animation-duration: 16s; }
-        .background span:nth-child(6) { left: 95%; width: 20px; height: 20px; animation-duration: 22s; }
-
-        @keyframes move {
-            0% { top: 100%; }
-            100% { top: -10%; }
-        }
-
-        /* 🌈 GRADIENT BORDER */
+        /* 🌈 BORDER */
         .wrapper {
             padding: 3px;
             border-radius: 22px;
@@ -57,26 +30,33 @@
             animation: gradientMove 6s ease infinite;
             max-width: 520px;
             margin: auto;
-            box-shadow: 0 0 25px rgba(0,0,0,0.2);
         }
 
-        /* GLASS CONTAINER */
+        /* GLASS */
         .container {
-            background: rgba(255, 255, 255, 0.6);
+            position: relative;
+            background: rgba(0,0,0,0.6);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             padding: 30px;
             border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        h1 {
-            color: black;
-            font-family: cursive;
+        h1, p {
+            color: white;
         }
 
-        p {
-            color: black;
+        /* TOGGLE BUTTON */
+        .toggle-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
         }
 
         /* PROFILE */
@@ -84,15 +64,9 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            border: 3px solid black;
+            border: 3px solid white;
             object-fit: cover;
             margin: 15px 0;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            transition: transform 0.4s;
-        }
-
-        .profile img:hover {
-            transform: scale(1.08);
         }
 
         /* BUTTONS */
@@ -102,13 +76,12 @@
             padding: 12px;
             width: 85%;
             border-radius: 25px;
-            background: rgba(0, 0, 0, 0.05);
-            color: black;
+            background: rgba(255,255,255,0.1);
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.3s;
         }
 
         .btn i {
@@ -116,33 +89,50 @@
         }
 
         .btn:hover {
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(255,255,255,0.2);
             transform: translateY(-3px);
         }
 
         .note {
             font-size: 12px;
-            color: red;
+            color: #ffaaaa;
         }
 
         .footer {
-            margin-top: 20px;
-            color: gray;
-            font-style: italic;
+            color: #ccc;
         }
 
-        /* QR */
         .qr img {
             width: 200px;
             border-radius: 15px;
-            margin-top: 15px;
-            border: 2px solid black;
+            border: 2px solid white;
         }
 
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        /* LIGHT MODE */
+        .light body {
+            background: #ffffff;
+            color: black;
+        }
+
+        .light .container {
+            background: rgba(255,255,255,0.7);
+        }
+
+        .light h1,
+        .light p {
+            color: black;
+        }
+
+        .light .btn {
+            background: rgba(0,0,0,0.05);
+            color: black;
+        }
+
+        /* ANIMATION */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         @keyframes gradientMove {
@@ -150,74 +140,94 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- 🔵 BACKGROUND -->
-    <div class="background">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+<div class="wrapper">
+    <div class="container">
 
-    <div class="wrapper">
-        <div class="container">
+        <!-- TOGGLE -->
+        <button id="themeToggle" class="toggle-btn">☀️</button>
 
-            <h1>Debtirtha Saha</h1>
+        <h1>Debtirtha Saha</h1>
 
-            <div class="profile">
-                <img src="profile.jpeg" alt="Profile Image">
-            </div>
-
-            <p><b>Follow me:</b></p>
-
-            <a class="btn" href="https://www.facebook.com/Debtirtha2008" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-
-            <a class="btn" href="https://www.facebook.com/profile.php?id=61573991201154" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook Page
-            </a>
-
-            <a class="btn" href="https://x.com/Debtirtha_Saha" target="_blank">
-                <i class="fab fa-x-twitter"></i> Twitter (X)
-            </a>
-
-            <a class="btn" href="https://www.instagram.com/d_e_b_t_i_r_t_h_a" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-
-            <a class="btn" href="https://www.snapchat.com/add/debtirtha_saha" target="_blank">
-                <i class="fab fa-snapchat"></i> Snapchat
-            </a>
-
-            <a class="btn" href="https://wa.me/919474842412" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-
-            <a class="btn" href="mailto:sahadebtirtha99@gmail.com">
-                <i class="fas fa-envelope"></i> Gmail
-            </a>
-
-            <p class="note">If WhatsApp doesn't open, save number and chat</p>
-
-            <div class="qr">
-                <p><b>Scan QR Code:</b></p>
-                <img src="qr-code.png" alt="QR Code">
-            </div>
-
-            <div class="footer">
-                Thank you for visiting!!
-            </div>
-
+        <div class="profile">
+            <img src="profile.jpeg" alt="Profile">
         </div>
+
+        <p><b>Follow me:</b></p>
+
+        <a class="btn" href="https://www.facebook.com/Debtirtha2008" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+
+        <a class="btn" href="https://www.facebook.com/profile.php?id=61573991201154" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook Page
+        </a>
+
+        <a class="btn" href="https://x.com/Debtirtha_Saha" target="_blank">
+            <i class="fab fa-x-twitter"></i> Twitter (X)
+        </a>
+
+        <a class="btn" href="https://www.instagram.com/d_e_b_t_i_r_t_h_a" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+
+        <a class="btn" href="https://www.snapchat.com/add/debtirtha_saha" target="_blank">
+            <i class="fab fa-snapchat"></i> Snapchat
+        </a>
+
+        <a class="btn" href="https://wa.me/919474842412" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+        <a class="btn" href="mailto:sahadebtirtha99@gmail.com">
+            <i class="fas fa-envelope"></i> Gmail
+        </a>
+
+        <p class="note">If WhatsApp doesn't open, save number and chat</p>
+
+        <div class="qr">
+            <p><b>Scan QR Code:</b></p>
+            <img src="qr-code.png" alt="QR">
+        </div>
+
+        <div class="footer">
+            Thank you for visiting!!
+        </div>
+
     </div>
+</div>
+
+<script>
+const toggle = document.getElementById("themeToggle");
+
+// Load saved theme OR default dark
+if(localStorage.getItem("theme") === "light"){
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+    toggle.textContent = "🌙";
+} else {
+    document.documentElement.classList.add("dark");
+    toggle.textContent = "☀️";
+}
+
+toggle.addEventListener("click", () => {
+    if(document.documentElement.classList.contains("dark")){
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.add("light");
+        localStorage.setItem("theme", "light");
+        toggle.textContent = "🌙";
+    } else {
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        toggle.textContent = "☀️";
+    }
+});
+</script>
 
 </body>
 </html>
