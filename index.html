@@ -5,54 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debtirtha Saha's Website</title>
 
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #dbeafe, #e6e6e6);
             text-align: center;
             padding: 40px;
+
+            /* 🌈 Animated Gradient Background */
+            background: linear-gradient(-45deg, #ffffff, #e0f7ff, #f0eaff, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
         }
 
+        /* 🌈 BORDER */
+        .wrapper {
+            padding: 3px;
+            border-radius: 22px;
+            background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00);
+            background-size: 600% 600%;
+            animation: gradientMove 6s ease infinite;
+            max-width: 520px;
+            margin: auto;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+        }
+
+        /* GLASS */
         .container {
-            background-color: white;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 30px;
             border-radius: 20px;
-            max-width: 500px;
-            margin: auto;
-            border: 4px solid #007bff;
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
         h1 {
+            color: black;
             font-family: cursive;
-            color: #007bff;
         }
 
-        /* Profile Image */
+        p {
+            color: black;
+        }
+
+        /* PROFILE */
         .profile img {
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            border: 4px solid #007bff;
+            border: 3px solid black;
             object-fit: cover;
-            object-position: center;
             margin: 15px 0;
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            transition: transform 0.4s;
         }
 
-        p {
-            margin: 12px 0;
+        .profile img:hover {
+            transform: scale(1.08);
         }
 
-        a {
-            color: #007bff;
+        /* BUTTONS */
+        .btn {
+            display: block;
+            margin: 10px auto;
+            padding: 12px;
+            width: 85%;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.05);
+            color: black;
             text-decoration: none;
             font-weight: bold;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
-        a:hover {
-            text-decoration: underline;
-            color: darkblue;
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
         }
 
         .note {
@@ -66,67 +103,82 @@
             font-style: italic;
         }
 
-        /* QR Code */
-        .qr {
-            margin-top: 25px;
+        /* QR */
+        .qr img {
+            width: 200px;
+            border-radius: 15px;
+            margin-top: 15px;
+            border: 2px solid black;
         }
 
-        .qr img {
-            width: 220px;
-            border: 3px solid #007bff;
-            border-radius: 15px;
-            padding: 8px;
-            background: white;
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+        /* ANIMATIONS */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Debtirtha Saha's Website</h1>
+    <div class="wrapper">
+        <div class="container">
 
-        <!-- Profile Image -->
-        <div class="profile">
-            <img src="profile.jpeg" alt="Profile Image">
-        </div>
+            <h1>Debtirtha Saha</h1>
 
-        <p><b>Follow us on :-</b></p>
+            <div class="profile">
+                <img src="profile.jpeg" alt="Profile Image">
+            </div>
 
-        <p>Facebook:<br>
-        <a href="https://www.facebook.com/Debtirtha2008" target="_blank">Debtirtha Saha</a></p>
+            <p><b>Follow me:</b></p>
 
-        <p>Facebook Page:<br>
-        <a href="https://www.facebook.com/profile.php?id=61573991201154" target="_blank">Debtirtha</a></p>
+            <a class="btn" href="https://www.facebook.com/Debtirtha2008" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
 
-        <p>Twitter (X):<br>
-        <a href="https://x.com/Debtirtha_Saha" target="_blank">Debtirtha Saha</a></p>
+            <a class="btn" href="https://www.facebook.com/profile.php?id=61573991201154" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook Page
+            </a>
 
-        <p>Instagram:<br>
-        <a href="https://www.instagram.com/d_e_b_t_i_r_t_h_a" target="_blank">d_e_b_t_i_r_t_h_a</a></p>
+            <a class="btn" href="https://x.com/Debtirtha_Saha" target="_blank">
+                <i class="fab fa-x-twitter"></i> Twitter (X)
+            </a>
 
-        <p>Snapchat:<br>
-        <a href="https://www.snapchat.com/add/debtirtha_saha" target="_blank">Debtirtha Saha</a></p>
+            <a class="btn" href="https://www.instagram.com/d_e_b_t_i_r_t_h_a" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
 
-        <p>WhatsApp Business:<br>
-        <a href="https://wa.me/919474842412" target="_blank">Chat on WhatsApp (9474842412)</a><br>
-        <span class="note">If chat doesn't open, save my number and chat</span>
-        </p>
+            <a class="btn" href="https://www.snapchat.com/add/debtirtha_saha" target="_blank">
+                <i class="fab fa-snapchat"></i> Snapchat
+            </a>
 
-        <p>Gmail:<br>
-        <a href="mailto:sahadebtirtha99@gmail.com">sahadebtirtha99@gmail.com</a></p>
+            <a class="btn" href="https://wa.me/919474842412" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
 
-        <p>Welcome to the official website!</p>
+            <a class="btn" href="mailto:sahadebtirtha99@gmail.com">
+                <i class="fas fa-envelope"></i> Gmail
+            </a>
 
-        <!-- QR Code -->
-        <div class="qr">
-            <p><b>Scan QR Code:</b></p>
-            <img src="qr-code.png" alt="QR Code">
-        </div>
+            <p class="note">If WhatsApp doesn't open, save number and chat</p>
 
-        <div class="footer">
-            Thank you for visiting us!!
+            <div class="qr">
+                <p><b>Scan QR Code:</b></p>
+                <img src="qr-code.png" alt="QR Code">
+            </div>
+
+            <div class="footer">
+                Thank you for visiting!!
+            </div>
+
         </div>
     </div>
 
