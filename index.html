@@ -11,16 +11,44 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: #ffffff;
             text-align: center;
             padding: 40px;
-
-            /* 🌈 Animated Gradient Background */
-            background: linear-gradient(-45deg, #ffffff, #e0f7ff, #f0eaff, #ffffff);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+            animation: fadeIn 1s ease-in;
         }
 
-        /* 🌈 BORDER */
+        /* 🔵 BACKGROUND ANIMATION */
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background span {
+            position: absolute;
+            display: block;
+            background: rgba(0, 0, 0, 0.08);
+            animation: move 20s linear infinite;
+            border-radius: 50%;
+        }
+
+        .background span:nth-child(1) { left: 10%; width: 25px; height: 25px; animation-duration: 15s; }
+        .background span:nth-child(2) { left: 30%; width: 20px; height: 20px; animation-duration: 18s; }
+        .background span:nth-child(3) { left: 50%; width: 30px; height: 30px; animation-duration: 12s; }
+        .background span:nth-child(4) { left: 70%; width: 22px; height: 22px; animation-duration: 20s; }
+        .background span:nth-child(5) { left: 85%; width: 18px; height: 18px; animation-duration: 16s; }
+        .background span:nth-child(6) { left: 95%; width: 20px; height: 20px; animation-duration: 22s; }
+
+        @keyframes move {
+            0% { top: 100%; }
+            100% { top: -10%; }
+        }
+
+        /* 🌈 GRADIENT BORDER */
         .wrapper {
             padding: 3px;
             border-radius: 22px;
@@ -32,7 +60,7 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.2);
         }
 
-        /* GLASS */
+        /* GLASS CONTAINER */
         .container {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
@@ -112,13 +140,12 @@
         }
 
         /* ANIMATIONS */
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
         }
 
-        @keyframes gradientBG {
+        @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -128,6 +155,16 @@
 </head>
 
 <body>
+
+    <!-- 🔵 BACKGROUND -->
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <div class="wrapper">
         <div class="container">
