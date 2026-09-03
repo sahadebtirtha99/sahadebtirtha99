@@ -6,81 +6,264 @@
     <title>Debtirtha Saha's Website</title>
 
     <!-- ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 40px;
+            padding: 40px 15px;
+            margin: 0;
+            min-height: 100vh;
 
-            /* 🌈 Background (dark default) */
-            background: linear-gradient(-45deg, #111, #1a1a2e, #16213e, #111);
+            background: linear-gradient(
+                -45deg,
+                #111,
+                #1a1a2e,
+                #16213e,
+                #111
+            );
+
             background-size: 400% 400%;
             animation: gradientBG 10s ease infinite;
             color: white;
         }
 
-        /* 🌈 BORDER */
+        /* 🌈 ANIMATED BORDER */
+
         .wrapper {
             padding: 3px;
             border-radius: 22px;
-            background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00);
+
+            background: linear-gradient(
+                270deg,
+                #ff00cc,
+                #3333ff,
+                #00ffcc,
+                #ffcc00
+            );
+
             background-size: 600% 600%;
             animation: gradientMove 6s ease infinite;
+
             max-width: 520px;
             margin: auto;
         }
 
-        /* GLASS */
+        /* 💎 GLASS CONTAINER */
+
         .container {
             position: relative;
-            background: rgba(0,0,0,0.6);
+
+            background: rgba(0, 0, 0, 0.6);
+
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
             padding: 30px;
             border-radius: 20px;
+
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        h1, p {
+        h1,
+        p {
             color: white;
         }
 
-        /* TOGGLE BUTTON */
+        /* ☀️ / 🌙 TOGGLE */
+
         .toggle-btn {
             position: absolute;
+
             right: 20px;
             top: 20px;
+
             border: none;
+
             background: rgba(255,255,255,0.1);
+
             padding: 8px 12px;
+
             border-radius: 50%;
+
             cursor: pointer;
+
             font-size: 18px;
+
+            color: white;
         }
 
-        /* PROFILE */
+        /* 👤 PROFILE */
+
+        .profile {
+            margin-top: 5px;
+        }
+
         .profile img {
             width: 140px;
             height: 140px;
+
             border-radius: 50%;
+
             border: 3px solid white;
+
             object-fit: cover;
+
             margin: 15px 0;
+
+            display: inline-block;
+
+            box-shadow:
+                0 0 20px rgba(255,255,255,0.15);
         }
 
-        /* BUTTONS */
+        /* 💎 PROFESSIONS */
+
+        .professions {
+            margin: 8px auto 25px;
+
+            padding: 18px 15px;
+
+            width: 88%;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.25);
+
+            overflow: hidden;
+        }
+
+        .profession-title {
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.7);
+
+            margin-bottom: 12px;
+        }
+
+        .profession-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 9px;
+        }
+
+        .profession {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 13px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.10);
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.15);
+
+            animation:
+                professionFloat
+                3s
+                ease-in-out
+                infinite;
+
+            transition: 0.3s ease;
+        }
+
+        .profession:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .profession:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .profession:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .profession:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .profession:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .profession:hover {
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+            background: rgba(255,255,255,0.18);
+
+            box-shadow:
+                0 8px 20px rgba(255,255,255,0.12);
+        }
+
+        .profession i {
+            font-size: 14px;
+        }
+
+        /* 🔘 BUTTONS */
+
         .btn {
             display: block;
+
             margin: 10px auto;
+
             padding: 12px;
+
             width: 85%;
+
             border-radius: 25px;
+
             background: rgba(255,255,255,0.1);
+
             color: white;
+
             text-decoration: none;
+
             font-weight: bold;
+
             border: 1px solid rgba(255,255,255,0.2);
+
             transition: 0.3s;
         }
 
@@ -90,7 +273,9 @@
 
         .btn:hover {
             background: rgba(255,255,255,0.2);
-            transform: translateY(-3px);
+
+            transform:
+                translateY(-3px);
         }
 
         .note {
@@ -102,13 +287,258 @@
             color: #ccc;
         }
 
-        .qr img {
-            width: 200px;
-            border-radius: 15px;
-            border: 2px solid white;
+        /* 📱 QR CODE */
+
+        .qr {
+            margin-top: 20px;
         }
 
-        /* LIGHT MODE */
+        .qr img {
+            width: 200px;
+            max-width: 80%;
+
+            border-radius: 15px;
+
+            border: 2px solid white;
+
+            display: inline-block;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        /* 👀 VISITOR COUNTER */
+
+        .visitor-counter {
+            margin: 22px auto 10px;
+
+            font-size: 14px;
+
+            color: #ccc;
+
+            opacity: 0.9;
+        }
+
+        .visitor-counter i {
+            margin-right: 6px;
+        }
+
+        /* ⭐ RATING SECTION */
+
+        .rating-section {
+            position: relative;
+
+            width: 88%;
+
+            margin: 28px auto 18px;
+
+            padding: 22px 15px;
+
+            border-radius: 22px;
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.12);
+
+            overflow: hidden;
+
+            animation:
+                ratingAppear
+                1s
+                ease
+                forwards;
+        }
+
+        /* ✨ GLASS SHINE */
+
+        .rating-section::before {
+            content: "";
+
+            position: absolute;
+
+            top: -80%;
+            left: -120%;
+
+            width: 70%;
+            height: 260%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.13),
+                transparent
+            );
+
+            transform: rotate(25deg);
+
+            animation:
+                glassShine
+                5s
+                ease-in-out
+                infinite;
+
+            pointer-events: none;
+        }
+
+        .rating-title {
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.72);
+
+            margin-bottom: 10px;
+        }
+
+        /* ⭐ STARS */
+
+        .stars {
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin: 8px 0;
+        }
+
+        .star {
+            font-size: 27px;
+
+            color: rgba(255,255,255,0.22);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                color 0.3s ease,
+                filter 0.3s ease;
+        }
+
+        .star:hover {
+            color: #ffd700;
+
+            transform:
+                translateY(-6px)
+                scale(1.18);
+
+            filter:
+                drop-shadow(
+                    0 0 10px
+                    rgba(255,215,0,0.75)
+                );
+        }
+
+        .star.active {
+            color: #ffd700;
+
+            filter:
+                drop-shadow(
+                    0 0 8px
+                    rgba(255,215,0,0.65)
+                );
+
+            animation:
+                starPop
+                0.4s
+                ease;
+        }
+
+        /* ⭐ FLOATING STARS */
+
+        .star:nth-child(1) {
+            animation:
+                starFloat
+                3s
+                ease-in-out
+                infinite;
+        }
+
+        .star:nth-child(2) {
+            animation:
+                starFloat
+                3s
+                ease-in-out
+                0.15s
+                infinite;
+        }
+
+        .star:nth-child(3) {
+            animation:
+                starFloat
+                3s
+                ease-in-out
+                0.30s
+                infinite;
+        }
+
+        .star:nth-child(4) {
+            animation:
+                starFloat
+                3s
+                ease-in-out
+                0.45s
+                infinite;
+        }
+
+        .star:nth-child(5) {
+            animation:
+                starFloat
+                3s
+                ease-in-out
+                0.60s
+                infinite;
+        }
+
+        /* ⭐ SCORE */
+
+        .rating-score {
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: white;
+
+            margin-top: 5px;
+        }
+
+        /* ⭐ TEXT */
+
+        .rating-text {
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 12px;
+
+            color: rgba(255,255,255,0.65);
+
+            margin-top: 8px;
+        }
+
+        /* 🌙 LIGHT MODE */
+
         .light body {
             background: #ffffff;
             color: black;
@@ -128,17 +558,217 @@
             color: black;
         }
 
-        /* ANIMATION */
+        .light .professions {
+            background: rgba(255,255,255,0.55);
+
+            border:
+                1px solid
+                rgba(0,0,0,0.12);
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.08);
+        }
+
+        .light .profession-title {
+            color: #555;
+        }
+
+        .light .profession {
+            background: rgba(0,0,0,0.05);
+
+            border:
+                1px solid
+                rgba(0,0,0,0.12);
+
+            color: black;
+        }
+
+        .light .profession:hover {
+            background: rgba(0,0,0,0.10);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,0.10);
+        }
+
+        .light .visitor-counter {
+            color: #555;
+        }
+
+        /* ⭐ LIGHT RATING */
+
+        .light .rating-section {
+            background: rgba(255,255,255,0.55);
+
+            border:
+                1px solid
+                rgba(0,0,0,0.12);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.08),
+
+                inset 0 1px 0
+                rgba(255,255,255,0.7);
+        }
+
+        .light .rating-title,
+        .light .rating-text {
+            color: #555;
+        }
+
+        .light .rating-score {
+            color: #111;
+        }
+
+        .light .star {
+            color: rgba(0,0,0,0.18);
+        }
+
+        .light .star.active,
+        .light .star:hover {
+            color: #e0a800;
+        }
+
+        .light .note {
+            color: #b00000;
+        }
+
+        .light .footer {
+            color: #555;
+        }
+
+        /* 📱 MOBILE */
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 20px 10px;
+            }
+
+            .container {
+                padding: 25px 15px;
+            }
+
+            .profession {
+                font-size: 12px;
+                padding: 8px 11px;
+            }
+
+            .profile img {
+                width: 130px;
+                height: 130px;
+            }
+
+            .btn {
+                width: 90%;
+            }
+
+            .rating-section,
+            .professions {
+                width: 94%;
+            }
+        }
+
+        /* ✨ ANIMATIONS */
+
+        @keyframes professionFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+
+        @keyframes ratingAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        @keyframes glassShine {
+
+            0% {
+                left: -120%;
+            }
+
+            45%,
+            100% {
+                left: 150%;
+            }
+        }
+
+        @keyframes starFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes starPop {
+
+            0% {
+                transform: scale(0.7);
+            }
+
+            60% {
+                transform: scale(1.25);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
@@ -146,87 +776,481 @@
 <body>
 
 <div class="wrapper">
+
     <div class="container">
 
-        <!-- TOGGLE -->
-        <button id="themeToggle" class="toggle-btn">☀️</button>
+        <!-- 🌙 THEME TOGGLE -->
+
+        <button id="themeToggle"
+                class="toggle-btn"
+                aria-label="Toggle theme">
+            ☀️
+        </button>
+
+
+        <!-- 👤 NAME -->
 
         <h1>Debtirtha Saha</h1>
 
-        <div class="profile">
-            <img src="profile.jpeg" alt="Profile">
+
+        <!-- 💎 PROFESSIONS -->
+
+        <div class="professions">
+
+            <div class="profession-title">
+                My Professions
+            </div>
+
+            <div class="profession-list">
+
+                <div class="profession">
+                    <i class="fas fa-music"></i>
+                    Violinist
+                </div>
+
+                <div class="profession">
+                    <i class="fas fa-camera"></i>
+                    Photographer
+                </div>
+
+                <div class="profession">
+                    <i class="fas fa-heart-pulse"></i>
+                    Wellness Professional
+                </div>
+
+                <div class="profession">
+                    <i class="fas fa-code"></i>
+                    Website Developer &amp; Maker
+                </div>
+
+                <div class="profession">
+                    <i class="fas fa-drafting-compass"></i>
+                    Civil Draughtsman
+                </div>
+
+            </div>
+
         </div>
 
-        <p><b>Follow me:</b></p>
 
-        <a class="btn" href="https://www.facebook.com/Debtirtha2008" target="_blank">
-            <i class="fab fa-facebook"></i> Facebook
+        <!-- 👤 PROFILE PICTURE -->
+
+        <div class="profile">
+
+            <img
+                src="profile.jpg"
+                alt="Debtirtha Saha Profile"
+            >
+
+        </div>
+
+
+        <!-- SOCIAL LINKS -->
+
+        <p>
+            <b>Follow me:</b>
+        </p>
+
+
+        <a
+            class="btn"
+            href="https://www.facebook.com/Debtirtha2008"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-facebook"></i>
+            Facebook
         </a>
 
-        <a class="btn" href="https://www.facebook.com/profile.php?id=61573991201154" target="_blank">
-            <i class="fab fa-facebook"></i> Facebook Page
+
+        <a
+            class="btn"
+            href="https://www.facebook.com/profile.php?id=61573991201154"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-facebook"></i>
+            Facebook Page
         </a>
 
-        <a class="btn" href="https://x.com/Debtirtha_Saha" target="_blank">
-            <i class="fab fa-x-twitter"></i> Twitter (X)
+
+        <a
+            class="btn"
+            href="https://x.com/Debtirtha_Saha"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-x-twitter"></i>
+            Twitter (X)
         </a>
 
-        <a class="btn" href="https://www.instagram.com/d_e_b_t_i_r_t_h_a" target="_blank">
-            <i class="fab fa-instagram"></i> Instagram
+
+        <a
+            class="btn"
+            href="https://www.instagram.com/d_e_b_t_i_r_t_h_a"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-instagram"></i>
+            Instagram
         </a>
 
-        <a class="btn" href="https://www.snapchat.com/add/debtirtha_saha" target="_blank">
-            <i class="fab fa-snapchat"></i> Snapchat
+
+        <a
+            class="btn"
+            href="https://www.snapchat.com/add/debtirtha_saha"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-snapchat"></i>
+            Snapchat
         </a>
 
-        <a class="btn" href="https://wa.me/919474842412" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp
+
+        <a
+            class="btn"
+            href="https://wa.me/919474842412"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
         </a>
 
-        <a class="btn" href="mailto:sahadebtirtha99@gmail.com">
-            <i class="fas fa-envelope"></i> Gmail
+
+        <a
+            class="btn"
+            href="mailto:sahadebtirtha99@gmail.com"
+        >
+            <i class="fas fa-envelope"></i>
+            Gmail
         </a>
 
-        <p class="note">If WhatsApp doesn't open, save number and chat</p>
+
+        <!-- 📞 CONTACT -->
+
+        <a
+            class="btn"
+            href="tel:+919474842412"
+        >
+            <i class="fas fa-phone"></i>
+            Contact
+        </a>
+
+
+        <p class="note">
+            If WhatsApp doesn't open, save number and chat
+        </p>
+
+
+        <!-- 📱 QR CODE -->
 
         <div class="qr">
-            <p><b>Scan QR Code:</b></p>
-            <img src="qr-code.png" alt="QR">
+
+            <p>
+                <b>Scan QR Code:</b>
+            </p>
+
+            <img
+                src="qr-code.png"
+                alt="QR Code"
+            >
+
         </div>
 
+
+        <!-- ⭐ RATING -->
+
+        <div class="rating-section">
+
+            <div class="rating-title">
+                Rate My Website
+            </div>
+
+
+            <div
+                class="stars"
+                id="stars"
+            >
+
+                <i
+                    class="fas fa-star star"
+                    data-rating="1"
+                ></i>
+
+                <i
+                    class="fas fa-star star"
+                    data-rating="2"
+                ></i>
+
+                <i
+                    class="fas fa-star star"
+                    data-rating="3"
+                ></i>
+
+                <i
+                    class="fas fa-star star"
+                    data-rating="4"
+                ></i>
+
+                <i
+                    class="fas fa-star star"
+                    data-rating="5"
+                ></i>
+
+            </div>
+
+
+            <div
+                class="rating-score"
+                id="ratingScore"
+            >
+                5.0 / 5
+            </div>
+
+
+            <div
+                class="rating-text"
+                id="ratingText"
+            >
+                Tap a star to rate ✨
+            </div>
+
+        </div>
+
+
+        <!-- 👀 VISITOR COUNTER -->
+
+        <div class="visitor-counter">
+
+            <i class="fas fa-eye"></i>
+
+            1.5K visitors today
+
+        </div>
+
+
+        <!-- FOOTER -->
+
         <div class="footer">
+
             Thank you for visiting!!
+
         </div>
 
     </div>
+
 </div>
 
+
 <script>
-const toggle = document.getElementById("themeToggle");
 
-// Load saved theme OR default dark
-if(localStorage.getItem("theme") === "light"){
-    document.documentElement.classList.remove("dark");
-    document.documentElement.classList.add("light");
-    toggle.textContent = "🌙";
-} else {
-    document.documentElement.classList.add("dark");
-    toggle.textContent = "☀️";
-}
+    /* 🌙 THEME */
 
-toggle.addEventListener("click", () => {
-    if(document.documentElement.classList.contains("dark")){
-        document.documentElement.classList.remove("dark");
-        document.documentElement.classList.add("light");
-        localStorage.setItem("theme", "light");
+    const toggle =
+        document.getElementById("themeToggle");
+
+
+    if (
+        localStorage.getItem("theme")
+        === "light"
+    ) {
+
+        document.documentElement
+            .classList
+            .remove("dark");
+
+        document.documentElement
+            .classList
+            .add("light");
+
         toggle.textContent = "🌙";
+
     } else {
-        document.documentElement.classList.remove("light");
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
+
+        document.documentElement
+            .classList
+            .remove("light");
+
+        document.documentElement
+            .classList
+            .add("dark");
+
         toggle.textContent = "☀️";
     }
-});
+
+
+    toggle.addEventListener(
+        "click",
+        () => {
+
+            if (
+                document.documentElement
+                    .classList
+                    .contains("dark")
+            ) {
+
+                document.documentElement
+                    .classList
+                    .remove("dark");
+
+                document.documentElement
+                    .classList
+                    .add("light");
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+                toggle.textContent = "🌙";
+
+            } else {
+
+                document.documentElement
+                    .classList
+                    .remove("light");
+
+                document.documentElement
+                    .classList
+                    .add("dark");
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+                toggle.textContent = "☀️";
+            }
+
+        }
+    );
+
+
+    /* ⭐ STAR RATING */
+
+    const stars =
+        document.querySelectorAll(".star");
+
+    const ratingText =
+        document.getElementById("ratingText");
+
+    const ratingScore =
+        document.getElementById("ratingScore");
+
+
+    stars.forEach(
+        star => {
+
+            star.addEventListener(
+                "click",
+                () => {
+
+                    const rating =
+                        star.dataset.rating;
+
+
+                    stars.forEach(
+                        s => {
+
+                            s.classList
+                                .remove("active");
+
+
+                            if (
+                                Number(
+                                    s.dataset.rating
+                                )
+                                <=
+                                Number(rating)
+                            ) {
+
+                                s.classList
+                                    .add("active");
+                            }
+
+                        }
+                    );
+
+
+                    ratingScore.textContent =
+                        rating + ".0 / 5";
+
+
+                    const messages = {
+
+                        1:
+                            "Thank you for your feedback ❤️",
+
+                        2:
+                            "Thanks! I'll keep improving ✨",
+
+                        3:
+                            "Glad you liked it 😊",
+
+                        4:
+                            "Awesome! Thank you 💎",
+
+                        5:
+                            "Thank you for the 5 stars! ⭐"
+
+                    };
+
+
+                    ratingText.textContent =
+                        messages[rating];
+
+
+                    localStorage.setItem(
+                        "websiteRating",
+                        rating
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* ⭐ LOAD PREVIOUS RATING */
+
+    const savedRating =
+        localStorage.getItem(
+            "websiteRating"
+        );
+
+
+    if (savedRating) {
+
+        stars.forEach(
+            star => {
+
+                if (
+                    Number(
+                        star.dataset.rating
+                    )
+                    <=
+                    Number(savedRating)
+                ) {
+
+                    star.classList
+                        .add("active");
+                }
+
+            }
+        );
+
+
+        ratingScore.textContent =
+            savedRating + ".0 / 5";
+
+
+        ratingText.textContent =
+            "Thank you for rating my website ❤️";
+
+    }
+
 </script>
 
 </body>
